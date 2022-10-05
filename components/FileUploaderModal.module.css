@@ -1,0 +1,23 @@
+.inputFields {
+  margin-top: 10px;
+}
+
+.uploaderTile {
+  /* overflow: hidden */
+}
+
+.uploaderTile > div:first-child > span:first-child > img {
+  object-fit: fill;
+}
+
+.uploaderForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.uploaderForm > *:first-child {
+  width: 110px;
+}
+.uploaderForm > *:last-child {
+  flex: 1;
+}

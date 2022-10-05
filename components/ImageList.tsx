@@ -1,9 +1,12 @@
-import images from "../mockData";
 import Image from "next/image";
 import { Popover } from "antd";
+import ImgData from "../models/imageDataModel";
 
-export const ImageList = (props: { sortBy: "name" | "date" }) => {
-  const { sortBy } = props;
+export const ImageList = (props: {
+  images: ImgData[];
+  sortBy: "name" | "date";
+}) => {
+  const { sortBy, images } = props;
   const styles = {
     imageStyles: {
       border: "#ccc solid 0.3px",
@@ -36,11 +39,7 @@ export const ImageList = (props: { sortBy: "name" | "date" }) => {
         >
           <div style={styles.imageStyles}>
             {m.imgLoc.substring(0, 1) === "/" ? (
-              <Image
-                src={m.imgLoc}
-                layout={"fixed"}
-                width={200}
-                height={200} />
+              <Image src={m.imgLoc} layout={"fixed"} width={200} height={200} />
             ) : (
               <img src={m.imgLoc} height={200} width={200} />
             )}

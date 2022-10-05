@@ -4,23 +4,17 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import React from "react";
 import { ImageList } from "../components/ImageList";
-import { Radio } from "antd";
+import { Radio, Button, Modal, Input } from "antd";
+import { FileUploaderComponent as FileUploader } from "../components/FileUploaderComponent";
+import images from "../mockData";
+import { RcFile } from "antd/lib/upload";
 
 const Home: NextPage = () => {
-  const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const eHandlers = React.useMemo(
-    () => ({
-      onAddImageBtnClick: () => {
-        setModalIsOpen(true);
-      },
-      onCloseModal: () => {
-        setModalIsOpen(false);
-      },
-    }),
-    []
-  );
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const [sortBy, setSortBy] = React.useState<"name" | "date">("name");
+
+  const [imgs, setImgs] = React.useState(images);
 
   return (
     <div
@@ -31,15 +25,22 @@ const Home: NextPage = () => {
         rowGap: 20,
       }}
     >
-      <button
-        style={{
-          display: "flex",
-          alignSelf: "center",
+      <FileUploader
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        onUploadSuccess={(image) => {
+          console.log(image.file?.thumbUrl);
+          return setImgs([
+            ...imgs,
+            {
+              name: image.name,
+              description: image.description,
+              date: new Date().toString(),
+              imgLoc: image.file?.thumbUrl ?? "",
+            },
+          ]);
         }}
-        onClick={eHandlers.onAddImageBtnClick}
-      >
-        {"Add Image"}
-      </button>
+      />
       <div>
         {"Sort by"}
         <Radio.Group
@@ -51,7 +52,7 @@ const Home: NextPage = () => {
           <Radio.Button value={"date"}>{"Date"}</Radio.Button>
         </Radio.Group>
       </div>
-      <ImageList sortBy={sortBy} />
+      <ImageList images={imgs} sortBy={sortBy} />
     </div>
   );
 };
