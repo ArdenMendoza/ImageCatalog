@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Bird",
+        "description": "Image of a Bird",
+        "imgLoc": "/sampleImages/Bird.jpeg"
+    },
+    {
+        "name": "Chipmunk",
+        "description": "Image of a Chipmunk",
+        "imgLoc": "/sampleImages/Chipmunk.jpg"
+    },
+    {
+        "name": "Fox",
+        "description": "Image of a Fox",
+        "imgLoc": "/sampleImages/Fox.jpg"
+    },
+    {
+        "name": "Koala",
+        "description": "Image of a Koala",
+        "imgLoc": "/sampleImages/Koala.jpg"
+    },
+    {
+        "name": "PrairieDog",
+        "description": "Image of a PrairieDog",
+        "imgLoc": "/sampleImages/PrairieDog.jpg"
+    }
+]
