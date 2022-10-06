@@ -1,16 +1,16 @@
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
-import React from "react";
-import { ImageList } from "../components/ImageList/ImageList";
-import { Radio, Button, Modal, Input } from "antd";
-import { FileUploaderComponent as FileUploader } from "../components/FileUploaderButton/FileUploaderButton";
-import images from "../mockData";
 import Head from "next/head";
+import React from "react";
+import { DataSorter } from "../components/DataSorter/DataSorter";
+import { FileUploaderComponent as FileUploader } from "../components/FileUploaderButton/FileUploaderButton";
+import { ImageList } from "../components/ImageList/ImageList";
+import images from "../mockData";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const [sortBy, setSortBy] = React.useState<"name" | "date">("name");
+  const [sortBy, setSortBy] = React.useState<string>("name");
 
   const [imgs, setImgs] = React.useState(images);
 
@@ -35,17 +35,13 @@ const Home: NextPage = () => {
             ]);
           }}
         />
-        <div>
-          {"Sort by"}
-          <Radio.Group
-            className={styles.sortGroup}
-            onChange={(e) => setSortBy(e.target.value)}
-            defaultValue={"name"}
-          >
-            <Radio.Button value={"name"}>{"Name"}</Radio.Button>
-            <Radio.Button value={"date"}>{"Date"}</Radio.Button>
-          </Radio.Group>
-        </div>
+        <DataSorter
+          items={[
+            { id: "name", label: "Name" },
+            { id: "date", label: "Date" },
+          ]}
+          onChange={(id) => setSortBy(id)}
+        />
         <ImageList images={imgs} sortBy={sortBy} />
       </div>
     </>

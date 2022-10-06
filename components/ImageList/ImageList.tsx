@@ -4,7 +4,7 @@ import styles from "./ImageList.module.css";
 
 export const ImageList = (props: {
   images: ImgData[];
-  sortBy: "name" | "date";
+  sortBy: string;
 }) => {
   const { sortBy, images } = props;
 
