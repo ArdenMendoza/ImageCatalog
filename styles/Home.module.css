@@ -12,6 +12,18 @@
   align-items: center;
 }
 
+.indexPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.sortGroup {
+  margin-left: 10px;
+}
+
+
 .footer {
   display: flex;
   flex: 1;

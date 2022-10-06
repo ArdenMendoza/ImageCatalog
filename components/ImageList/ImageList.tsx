@@ -1,5 +1,6 @@
-import ImgData from "../models/imageDataModel";
-import { ImageWithPopOver } from "./imageWithPopOver/ImageWithPopOver";
+import ImgData from "../../models/imageDataModel";
+import { ImageWithPopOver } from "../imageWithPopOver/ImageWithPopOver";
+import styles from "./ImageList.module.css";
 
 export const ImageList = (props: {
   images: ImgData[];
@@ -12,15 +13,7 @@ export const ImageList = (props: {
   );
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        columnGap: 20,
-        rowGap: 20,
-      }}
-    >
+    <div className={styles.imageListContainer}>
       {imageList.map((m) => (
         <ImageWithPopOver imageDetails={m} />
       ))}

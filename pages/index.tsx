@@ -1,13 +1,10 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import React from "react";
-import { ImageList } from "../components/ImageList";
+import { ImageList } from "../components/ImageList/ImageList";
 import { Radio, Button, Modal, Input } from "antd";
-import { FileUploaderComponent as FileUploader } from "../components/FileUploaderComponent";
+import { FileUploaderComponent as FileUploader } from "../components/FileUploaderButton/FileUploaderButton";
 import images from "../mockData";
-import { RcFile } from "antd/lib/upload";
 
 const Home: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -17,19 +14,11 @@ const Home: NextPage = () => {
   const [imgs, setImgs] = React.useState(images);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        rowGap: 20,
-      }}
-    >
+    <div className={styles.indexPageContainer}>
       <FileUploader
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         onUploadSuccess={(image) => {
-          console.log(image.file?.thumbUrl);
           return setImgs([
             ...imgs,
             {
@@ -44,7 +33,7 @@ const Home: NextPage = () => {
       <div>
         {"Sort by"}
         <Radio.Group
-          style={{ marginLeft: 10 }}
+          className={styles.sortGroup}
           onChange={(e) => setSortBy(e.target.value)}
           defaultValue={"name"}
         >

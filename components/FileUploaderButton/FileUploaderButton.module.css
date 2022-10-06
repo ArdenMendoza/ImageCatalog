@@ -21,3 +21,8 @@
 .uploaderForm > *:last-child {
   flex: 1;
 }
+
+.uploadButton {
+  display: flex;
+  align-self: center;
+}

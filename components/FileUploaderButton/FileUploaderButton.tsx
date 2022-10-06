@@ -1,8 +1,7 @@
 import { Button, Input, Modal, UploadFile } from "antd";
-import { RcFile } from "antd/lib/upload";
 import React from "react";
-import FileUploader from "./FileUploader";
-import styles from "./FileUploaderModal.module.css";
+import FileUploader from "../FileUploader";
+import styles from "./FileUploaderButton.module.css";
 
 export const FileUploaderComponent = (props: {
   isModalOpen: boolean;
@@ -26,10 +25,7 @@ export const FileUploaderComponent = (props: {
     <>
       <Button
         type={"primary"}
-        style={{
-          display: "flex",
-          alignSelf: "center",
-        }}
+        className={styles.uploadButton}
         onClick={() => setIsModalOpen(true)}
       >
         {"Add Image"}

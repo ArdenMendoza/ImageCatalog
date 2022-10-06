@@ -3,7 +3,7 @@ import ImgCrop from "antd-img-crop";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import React, { useState } from "react";
 
-const App = (props: { onUploadSuccess: (file: UploadFile) => void }) => {
+const FileUploader = (props: { onUploadSuccess: (file: UploadFile) => void }) => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
   const onChange: UploadProps["onChange"] = ({ fileList: newFileList }) => {
@@ -42,4 +42,4 @@ const App = (props: { onUploadSuccess: (file: UploadFile) => void }) => {
   );
 };
 
-export default App;
+export default FileUploader;
