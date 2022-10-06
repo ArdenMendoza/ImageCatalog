@@ -31,7 +31,7 @@ export default [
   },
   {
     name: "Puppy",
-    description: "Image of Puppy",
+    description: "Image of a Puppy",
     imgLoc:
       "https://i.pinimg.com/564x/7f/26/e7/7f26e71b2c84e6b16d4f6d3fd8a58bca.jpg",
     date: "Wed Oct 05 2022 21:12:14 GMT+0800 (Philippine Standard Time)",

@@ -9,7 +9,7 @@ export const ImageList = (props: {
   const { sortBy, images } = props;
 
   const imageList = [...images].sort((a: any, b: any) =>
-    a[sortBy] < b[sortBy] ? 1 : -1
+    a[sortBy] < b[sortBy] ? -1 : 1
   );
 
   return (
