@@ -1,0 +1,11 @@
+.popOverLabel {
+  font-weight: bolder;
+}
+
+.imageContainer {
+  border: #ccc solid 0.3px;
+  padding: 10px;
+  box-shadow: 10px 9px 21px -7px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: 10px 9px 21px -7px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 10px 9px 21px -7px rgba(0, 0, 0, 0.47);
+}
